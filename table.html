@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 0;
+            animation: zoomIn 2s ease;
+        }
+        @keyframes zoomIn {
+            0% { transform: scale(1.08); filter: blur(4px) brightness(0.7); }
+            100% { transform: scale(1); filter: blur(0) brightness(1); }
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 70px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0));
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            z-index: 2;
+        }
+        .logo {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 36px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #b3e0ff;
+        }
+        .nav-links a.active::after {
+            content: '';
+            display: block;
+            margin: 0 auto;
+            width: 60%;
+            height: 2px;
+            background: #b3e0ff;
+            border-radius: 2px;
+            margin-top: 4px;
+        }
+        .menu-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .menu-icon span, .menu-icon span::before, .menu-icon span::after {
+            display: block;
+            background: #fff;
+            height: 3px;
+            width: 28px;
+            border-radius: 2px;
+            position: absolute;
+            transition: 0.3s;
+        }
+        .menu-icon span {
+            position: relative;
+        }
+        .menu-icon span::before {
+            content: '';
+            position: absolute;
+            top: -9px;
+        }
+        .menu-icon span::after {
+            content: '';
+            position: absolute;
+            top: 9px;
+        }
+        .centered-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 5vw;
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 24px rgba(0,0,0,0.45);
+            z-index: 1;
+            opacity: 0;
+            animation: fadeIn 2s 0.7s forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        @media (max-width: 700px) {
+            .navbar { padding: 0 12px; height: 56px; }
+            .logo { font-size: 1.2rem; }
+            .nav-links { gap: 16px; }
+            .centered-title { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <img class="bg-image" src="https://www.shutterstock.com/image-photo/fantastic-evening-kirkjufell-volcano-coast-600nw-530221900.jpg" alt="Background" />
+    <nav class="navbar">
+        <div class="logo">
+            <span style="font-size:1.7rem; margin-right:6px;">&#x263C;</span> Discovery
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Gallery</a>
+            <a href="#">About DLC</a>
+            <a href="#">Our Worlds</a>
+            <a href="#">Experiences</a>
+            <a href="#">Company</a>
+        </div>
+        <div class="menu-icon">
+            <span></span>
+        </div>
+    </nav>
+    <div class="centered-title">Gallery</div>
+</body>
+</html>
